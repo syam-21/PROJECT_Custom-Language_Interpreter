@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini CLI Web IDE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Custom Language Interpreter</h1>
+    </header>
+    <div class="container">
+        <div class="panel input-panel">
+            <h2>Input</h2>
+            <textarea id="input-text" placeholder="Type your code or text here..."></textarea>
+            <div class="controls">
+                <select id="options-selector">
+                    <option value="">Select Functionality</option>
+                    <option value="run_full_c_code">Run Full Code</option>
+                    <option value="email_parser">Email Parser</option>
+                    <option value="normal_text_analyzer">Normal Text Analyzer</option>
+                    <option value="comment_detector">Comment Detector</option>
+                    <option value="word_frequency_calculator">Word Frequency Calculator</option>
+
+                    <option value="calculator">Arithmetic Calculator</option>
+                    <option value="flex_bison_arithmetic_calculator">Arithmetic Calculator (INT & FLOAT)</option>
+                    <option value="boolean_expression_evaluator">Boolean Expression Evaluator</option>
+
+
+
+                    <option value="compiler_error_classifier">Compiler Error Classifier</option>
+                    <option value="operator_delimiter_recognizer">C Lexical Analyzer</option>
+                    <option value="parser_action_printer">Parser Action Printer (Variable Declarations)</option>
+                    <option value="semantic_action_simulator">Semantic Action Simulator</option>
+                    <option value="command_language_interpreter">Command Language Interpreter</option>
+                </select>
+                <div class="spinner" id="loading-spinner"></div>
+                <button id="run-button">Run</button>
+            </div>
+        </div>
+        <div class="panel output-panel">
+            <h2>Output</h2>
+            <pre id="output-text"></pre>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 All Rights Reserved</p>
+        <p>Compiler Design Lab Course — CSE314</p>
+        <p>Department of Computer Science and Engineering</p>
+        <p>Faculty of Science and Information Technology</p>
+        <p>Course Instructor: Ms. Tamanna Sultana, Lecturer, Department of CSE</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+=================== EMAIL CHECKER ===================
+
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+// Check if email is valid
+bool isValidEmail(const char *email) {
+    if (strchr(email, '@') == NULL) return false;
+    if (strchr(email, '.') == NULL) return false;
+    if (email[0] == '@') return false;
+    return true;
+}
+
+// Check if email belongs to DIU
+bool isDIUEmail(const char *email) {
+    const char *domain = "@diu.edu.bd";
+    int lenEmail = strlen(email);
+    int lenDomain = strlen(domain);
+    if (lenEmail < lenDomain) return false;
+    return strcmp(email + (lenEmail - lenDomain), domain) == 0;
+}
+
+// Check if email is university email (.edu or .edu.bd)
+bool isUniversityEmail(const char *email) {
+    int len = strlen(email);
+    if (len >= 4 && strcmp(email + len - 4, ".edu") == 0) return true;
+    if (len >= 7 && strcmp(email + len - 7, ".edu.bd") == 0) return true;
+    return false;
+}
+
+int main() {
+    const char *emails[] = {
+        "abdullah2305101425@diu.edu.bd",
+        "teacher.cse@diu.edu.bd",
+        "john.doe@gmail.com",
+        "invalidemail.com",
+        "@diu.edu.bd",
+        "research@oxford.edu"
+    };
+
+    int n = sizeof(emails) / sizeof(emails[0]);
+
+    for (int i = 0; i < n; i++) {
+        bool valid = isValidEmail(emails[i]);
+        bool diu = isDIUEmail(emails[i]);
+        bool uni = isUniversityEmail(emails[i]);
+
+        char status[40];
+        if (!valid) strcpy(status, "Invalid");
+        else if (diu) strcpy(status, "Valid (University)");
+        else strcpy(status, "Valid (Non-University)");
+
+        printf("Email: %s | Status: %s | Is University Mail (.edu): %s\n",
+               emails[i],
+               status,
+               uni ? "Yes" : "No");
+    }
+
+    return 0;
+}
+
+
+=================== C ANALYZER (KEYWORD & IDENTIFIER) ===================
+
+#include <stdio.h>
+
+int main() {
+    int a = 2;
+    int b = 3;
+    int sum = a + b;
+
+    if (sum > 4) {
+        printf("Sum is greater than 4\n");
+    } else {
+        printf("Sum is 4 or less\n");
+    }
+
+    return 0;
+}
+
+
+=================== Normal Text Analyzer ===================
+
+#include <stdio.h>
+int main() {
+    printf("DIU is a smart university in Savar.\n");
+    return 0;
+}
+
+
+=================== Comment Detector ===================
+
+#include <stdio.h>
+// This is a comment
+int main() {
+    /* Multi-line
+       comment */
+    return 0;
+}
+
+
+=================== Word Frequency Calculator ===================
+
+#include <stdio.h>
+int main() {
+    printf("Compiler design is fun. Compiler design is powerful.\n");
+    return 0;
+}
+
+
+=================== Arithmetic Calculation (INT & FLOAT) ===================
+
+10 - 3.75
+
+
+=================== Command Language Interpreter ===================
+
+No input — just select "Command Language Interpreter"
+Click RUN
+
+Then system will ask for input. Type one by one:
+
+set x to 15
+show x
+add 5 and 7
+subtract 3 from 10
+multiply 4 and 6
+multiply 4 and 6
+Exit
+
+Output will be printed after each command.
+
+
+=================== Boolean Expression Evaluator ===================
+
+1 && 0
+1 || 0
+!(1 && 0)
+(1 && 1) || 0
